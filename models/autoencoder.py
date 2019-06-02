@@ -26,9 +26,11 @@ class Seq2Seq(nn.Module):
                                    batch_first=True)
             self.linear = nn.Linear(nhidden, ntokens)
         elif dec_type == DenseDecoder.TYPE:
-            self.decoder = DenseDecoder(maxlen=maxlen, ntokens=ntokens, nhidden=nhidden, with_pos_idx=True)
+            with_pos_idx = False
+            self.decoder = DenseDecoder(maxlen=maxlen, ntokens=ntokens, nhidden=nhidden)
         elif dec_type == DensePosDecoder.TYPE:
-            self.decoder = DensePosDecoder(maxlen=maxlen, ntokens=ntokens, nhidden=nhidden, aggr='cat')
+            aggr = 'cat'
+            self.decoder = DensePosDecoder(maxlen=maxlen, ntokens=ntokens, nhidden=nhidden)
         elif dec_type == ConvDecoder.TYPE:
             self.decoder = ConvDecoder(maxlen, ntokens, nhidden)
         else:

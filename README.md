@@ -37,9 +37,4 @@ python train.py --data data_snli --no_earlystopping --gpu 0 --kenlm_model knlm_s
 python generate.py --greedy
 ```
 
-### Results
-
-| setting | Forward PPL | Reverse PPL |
-|---------|-------------|-------------|
-| asd     | asd         | asd         |
-
+Presentation: https://github.com/awant/non_autoregressive_lm/blob/master/ParallARAE.pdf
